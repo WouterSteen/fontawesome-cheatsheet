@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Page Needs
+   ================================================== -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Font Awesome, the iconic font and CSS framework">
+    <meta name="author" content="Wouter Steenmeijer">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>{{ page.title }}</title>
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="{{ page.relative_path }}assets/css/styles.css">
+    <link rel="stylesheet" href="{{ page.relative_path }}assets/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="{{ page.relative_path }}assets/css/bootstrap.css"/>
+    <link rel="stylesheet" href="{{ page.relative_path }}assets/css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="{{ page.relative_path }}assets/css/jquery.datatables.css"/>
+    <link rel="stylesheet" href="{{ page.relative_path }}assets/css/styles.css"/>
+
+
+    <!--[if lt IE 9]>
+    <script src="{{ page.relative_path }}assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+
+</head>
+<body>
+
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Fontawesome cheatsheet!</h1>
+            <p>Because fontawesome is so awesome!!! Unfortunately fontaweomse doenst have a decent cheatsheet where you can search by name, unicode etc.</p>
+            <p>Obviously all the licenses that fontawesome has apply here also</p>
+        </div>
+    </div>
+
+    <div id="wrapper">
+
+        <div class="form-group">
+            <label for="searchicons">Search for icons</label>
+            <input type="email" class="form-control" id="searchicons" placeholder="Search">
+        </div>
+
+        {{ content }}
+    </div>
+
+    <div class="footer">
+        <div>
+            Font Awesome licensed under <a href="http://scripts.sil.org/OFL">SIL OFL 1.1</a>
+            <span class="hide-xs">·</span><br class="hide-sm hide-md hide-lg">
+            Code licensed under <a href="http://opensource.org/licenses/mit-license.html">MIT License</a>
+            <span class="hide-xs hide-sm">·</span><br class="hide-md hide-lg">
+            Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>
+        </div>
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/{{ site.jquery.version }}/jquery.min.js"></script>
+<script src="{{ page.relative_path }}assets/js/bootstrap.min.js"></script>
+<script src="http://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+
+<script>
+
+    $(document).ready(function() {
+        oTable = $('#icons').dataTable( {
+            "paging":   false,
+            "ordering": true,
+            "info":     true
+        } );
+
+        $('#searchicons').keyup(function(){
+            oTable.fnFilter($(this).val());
+        })
+    } );
+
+</script>
+</body>
+</html>

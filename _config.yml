@@ -1,0 +1,15 @@
+safe:             false
+port:             4000
+baseurl:          /  # Where GitHub serves the project up from
+url:              http://localhost:4000
+title: Fontawesome Cheatsheet
+
+bootstrap:
+  version:        3.3.5
+  url:            http://getbootstrap.com
+
+jquery:
+  version:        1.11.3
+
+jquery_validate:
+  version:        1.13.1
