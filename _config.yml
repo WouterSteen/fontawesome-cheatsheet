@@ -1,8 +1,8 @@
 safe:             false
 port:             4000
-baseurl:          /  # Where GitHub serves the project up from
+baseurl:          /
 url:              http://localhost:4000
-title: Fontawesome Cheatsheet
+title:            Fontawesome Cheatsheet
 
 bootstrap:
   version:        3.3.5
