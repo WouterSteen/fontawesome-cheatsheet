@@ -30,18 +30,23 @@ layout: base
     </tfoot>
     <tbody>
         {% for icon in site.data.icons %}
-        <tr>
-            <td><i class="fa fa-{{ icon.id }}"></i></td>
-            <td>{{ icon.name }}</td>
-            <td>{{ icon.id }}</td>
-            <td>
-                <pre><code class="language-html" data-lang="html"><span class="nt">&lt;i </span><span class="na">class=</span><span class="s">"fa fa-{{ icon.id }}"</span><span class="nt">&gt;</span></code></pre>
-            </td>
-            <td>{{ icon.unicode }}</td>
-            <td>{{ icon.categories }}</td>
-            <td>{{ icon.filter }}</td>
-            <td>{{ icon.created }}</td>
-        </tr>
+            <tr>
+                <td><i class="fa fa-{{ icon.id }}"></i></td>
+                <td>{{ icon.name }}</td>
+                <td>{{ icon.id }}</td>
+                <td>
+                    <pre><code class="language-html" data-lang="html" data-to-copy-html='<i class="fa fa-{{ icon.id }}"></i>' ><span class="nt">&lt;i </span><span class="na">class=</span><span class="s">"fa fa-{{ icon.id }}"</span><span class="nt">&gt;</span><span class="nt">&lt;/i</span><span class="nt">&gt;</span></code></pre>
+                </td>
+                <td class="copy-unicode" data-to-copy-html="{{ icon.unicode }}">{{ icon.unicode }}</td>
+                <td>{{ icon.categories }}</td>
+                <td>
+                    {% assign my_array = icon.filter %}
+                    {% for tag in my_array %}
+                        {{ tag }}
+                    {% endfor %}
+                </td>
+                <td>{{ icon.created }}</td>
+            </tr>
         {% endfor %}
     </tbody>
 </table>
