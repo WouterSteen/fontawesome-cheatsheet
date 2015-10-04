@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="Font Awesome Cheatsheet">
+    <meta name="description" content="This is a simple cheatsheet for Font Awesome. You can copy code and unicode by one click.">
     <meta name="keywords" content="Fontawesome, font awesome, cheatsheet" />
 
     <meta name="author" content="Wouter Steenmeijer">
@@ -34,14 +34,21 @@
 
 </head>
 <body>
-
-
     <div class="jumbotron">
         <div class="container">
-            <h1>Fontawesome cheatsheet!</h1>
-            <p>Because fontawesome is so awesome!!! Unfortunately fontaweomse doenst have a decent cheatsheet where you can search by name, unicode etc.</p>
-            <p>If you are not familiar with font awesome please download here: <a href="http://fortawesome.github.io/Font-Awesome/" title="Font awsome website">http://fortawesome.github.io/Font-Awesome/</a></p>
-            <p>Update: sorry for the long wait, but ive updated to v4.4. Some new awesome icons are added!</p>
+            <h1>Fontawesome cheatsheet</h1>
+            <p>This is a font awesome cheatsheet. I made this because I found myself misclicking alot on the original cheatsheet. Also I was missing some search functions like Unicode, aliases etc.</p>
+
+            <h2>With this fontaswesome cheatsheet you can</h2>
+            <ul class="fa-ul">
+                <li><i class="fa-li fa fa-check"></i>search by unicode</li>
+                <li><i class="fa-li fa fa-check"></i>search by alias</li>
+                <li><i class="fa-li fa fa-check"></i>intant copy to code to clipboard when you click on the icon html</li>
+                <li><i class="fa-li fa fa-check"></i>instant copy unicode to clipboard</li>
+            </ul>
+            <p>Use the search field to start searching for the icon you need.</p>
+            <p>If you click on the HTML or the unicode its under your CTRL V <i class="fa fa-smile-o"></i></p>
+            <p>If you are not familiar with font awesome have a look over here: <a href="http://fortawesome.github.io/Font-Awesome/" title="Font awsome website">http://fortawesome.github.io/Font-Awesome/</a></p>
         </div>
     </div>
 
@@ -62,9 +69,20 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/{{ site.jquery.version }}/jquery.min.js"></script>
 <script src="{{ page.relative_path }}assets/js/bootstrap.min.js"></script>
+<script src="{{ page.relative_path }}assets/js/clipboard.js"></script>
 <script src="http://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
 
 <script>
+
+function copyToClipboard(e) {
+      clipboard.copy({
+            'text/plain': $(e).data("to-copy-html"),
+            'text/html': $(e).data("to-copy-html")
+          }).then(
+            function(){console.log('success'); },
+            function(err){console.log('failure', err);
+          });
+    }
 
     $(document).ready(function() {
         oTable = $('#icons').dataTable( {
@@ -76,7 +94,11 @@
         $('#searchicons').keyup(function(){
             oTable.fnFilter($(this).val());
         })
-    } );
+
+        $("code").add(".copy-unicode").on('click', function(e) {
+            copyToClipboard($(this));
+        });
+    });
 
 </script>
 </body>
