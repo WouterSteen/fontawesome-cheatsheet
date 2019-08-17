@@ -1,12 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
+  <meta name="keywords" content="{{ page.keywords }}" />
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
-  <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+  <meta name="author" content="Wouter Steenmeijer">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href="./assets/ico/favicon.ico">
+
+  <link rel="stylesheet" href="{{ page.relative_path }}/assets/css/styles.css">
+  <link rel="stylesheet" href="{{ page.relative_path }}/assets/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ page.relative_path }}/assets/css/jquery.datatables.css"/>
+  <link rel="stylesheet" href="{{ page.relative_path }}/assets/css/styles.css"/>
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
+
+  <!--[if lt IE 9]>
+  <script src="{{ page.relative_path }}assets/js/html5shiv.js"></script>
+  <![endif]-->
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-65184098-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
 </head>

@@ -1,42 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="This is a simple cheatsheet for Font Awesome. You can copy code and unicode by one click.">
-    <meta name="keywords" content="Fontawesome, font awesome, cheatsheet" />
+{% include head.html %}
 
-    <meta name="author" content="Wouter Steenmeijer">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="shortcut icon" href="./assets/ico/favicon.ico">
-    <title>Font Awesome Cheatsheet</title>
-    <link rel="stylesheet" href="{{ page.relative_path }}assets/css/styles.css">
-    <link rel="stylesheet" href="{{ page.relative_path }}assets/font-awesome/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="{{ page.relative_path }}assets/css/bootstrap.css"/>
-    <link rel="stylesheet" href="{{ page.relative_path }}assets/css/bootstrap-theme.css"/>
-    <link rel="stylesheet" href="{{ page.relative_path }}assets/css/jquery.datatables.css"/>
-    <link rel="stylesheet" href="{{ page.relative_path }}assets/css/styles.css"/>
-
-    <!--[if lt IE 9]>
-        <script src="{{ page.relative_path }}assets/js/html5shiv.js"></script>
-    <![endif]-->
-
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-65184098-1', 'auto');
-        ga('send', 'pageview');
-
-    </script>
-
-</head>
 <body>
+    {% include header.html %}
+
     <div class="jumbotron">
         <div class="container">
-            <h1>Fontawesome cheatsheet</h1>
+            <h1>{{ site.title }}</h1>
             <p>This is a font awesome cheatsheet. I made this because I found myself misclicking alot and not finding what I want on the original cheatsheet. </p>
 
             <h2>With this fontawesome cheatsheet you can</h2>
@@ -47,7 +16,7 @@
                 <li><i class="fa-li fa fa-check"></i>intant copy to code to clipboard when you click on the icon html</li>
                 <li><i class="fa-li fa fa-check"></i>instant copy unicode to clipboard</li>
                 <li><i class="fa-li fa fa-check"></i>sort the table anyway you like</li>
-            </ul>           
+            </ul>
             <p>Use the search field to start searching for the icon you need.</p>
             <p>If you click on the HTML or the unicode its under your CTRL V</p>
 
@@ -67,47 +36,44 @@
         {{ content }}
     </div>
 
-    <div class="footer">
-        <div>
-        </div>
-    </div>
+    {% include footer.html %}
 
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-<script src="{{ page.relative_path }}assets/js/bootstrap.min.js"></script>
-<script src="{{ page.relative_path }}assets/js/clipboard.js"></script>
-<script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="{{ page.relative_path }}assets/js/bootstrap.min.js"></script>
+    <script src="{{ page.relative_path }}assets/js/clipboard.js"></script>
+    <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
 
-<script>
+    <script>
 
-function copyToClipboard(e) {
-      clipboard.copy({
-            'text/plain': $(e).data("to-copy-html"),
-            'text/html': $(e).data("to-copy-html")
-          }).then(
-            function(){console.log('success'); },
-            function(err){console.log('failure', err);
-          });
-    }
+        function copyToClipboard(e) {
+              clipboard.copy({
+                    'text/plain': $(e).data("to-copy-html"),
+                    'text/html': $(e).data("to-copy-html")
+                  }).then(
+                    function(){console.log('success'); },
+                    function(err){console.log('failure', err);
+                  });
+            }
 
-    $(document).ready(function() {
-        oTable = $('#icons').dataTable( {
-            "paging":   false,
-            "ordering": true,
-            "info":     true
-        } );
+            $(document).ready(function() {
+                oTable = $('#icons').dataTable( {
+                    "paging":   false,
+                    "ordering": true,
+                    "info":     true
+                } );
 
-        $('#searchicons').keyup(function(){
-            oTable.fnFilter($(this).val());
-        })
+                $('#searchicons').keyup(function(){
+                    oTable.fnFilter($(this).val());
+                })
 
-        $("code").add(".copy-unicode").on('click', function(e) {
-            copyToClipboard($(this));
-        });
+                $("code").add(".copy-unicode").on('click', function(e) {
+                    copyToClipboard($(this));
+                });
 
-        $('#searchicons').focus();
-        
-    });
+                $('#searchicons').focus();
 
-</script>
+            });
+
+    </script>
 </body>
 </html>
