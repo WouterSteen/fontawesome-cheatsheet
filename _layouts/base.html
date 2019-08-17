@@ -38,42 +38,42 @@
 
     {% include footer.html %}
 
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-    <script src="{{ page.relative_path }}assets/js/bootstrap.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="{{ page.relative_path }}assets/js/clipboard.js"></script>
-    <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
 
     <script>
 
         function copyToClipboard(e) {
-              clipboard.copy({
-                    'text/plain': $(e).data("to-copy-html"),
-                    'text/html': $(e).data("to-copy-html")
-                  }).then(
-                    function(){console.log('success'); },
-                    function(err){console.log('failure', err);
-                  });
-            }
-
-            $(document).ready(function() {
-                oTable = $('#icons').dataTable( {
-                    "paging":   false,
-                    "ordering": true,
-                    "info":     true
-                } );
-
-                $('#searchicons').keyup(function(){
-                    oTable.fnFilter($(this).val());
-                })
-
-                $("code").add(".copy-unicode").on('click', function(e) {
-                    copyToClipboard($(this));
+            clipboard.copy({
+                'text/plain': $(e).data("to-copy-html"),
+                'text/html': $(e).data("to-copy-html")
+            }).then(
+                function(){console.log('success'); },
+                function(err){console.log('failure', err);
                 });
+        }
 
-                $('#searchicons').focus();
-
+        (function() {
+            oTable = $('#icons').DataTable({
+                "paging":   false,
+                "ordering": true,
+                "info":     true
             });
 
+            $('#searchicons').keyup(function(){
+                oTable.search($(this).val()).draw();
+            })
+
+            $("code").add(".copy-unicode").on('click', function(e) {
+                copyToClipboard($(this));
+            });
+
+            $('#searchicons').focus();
+        })();
+
+
     </script>
+
+
 </body>
 </html>
