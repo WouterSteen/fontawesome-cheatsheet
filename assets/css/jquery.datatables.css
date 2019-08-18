@@ -100,6 +100,10 @@ table.dataTable thead .sorting_asc:after {
 table.dataTable thead .sorting_desc:after {
     content: "\f0dd"; /* sort-by-attributes-alt */
 }
+
+table.fa-5 .sorting_asc i:before { content: "\f0dc";}
+table.fa-5 thead .sorting:after  i:before { content: "\f0dc"; }
+
 div.dataTables_scrollBody table.dataTable thead .sorting:after,
 div.dataTables_scrollBody table.dataTable thead .sorting_asc:after,
 div.dataTables_scrollBody table.dataTable thead .sorting_desc:after {

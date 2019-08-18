@@ -2,13 +2,12 @@ body {  }
 
 #wrapper { max-width: 1600px; margin-left: auto; margin-right: auto; position: relative; }
 #icons_filter { display: none; }
-table.dataTable thead .sorting {
 
-}
+table.dataTable .sorting_asc i:before { content: "\f0de";}
+table.dataTable .sorting_desc  i:before { content: "\f0dd"; }
 
-table.dataTable thead .sorting_asc i:before { content: "\f0de";}
-
-table.dataTable thead .sorting_desc  i:before { content: "\f0dd"; }
+table.dataTable.fa-5 .sorting_asc i:before { content: "\f0dc";}
+table.dataTable.fa-5 thead .sorting:after  i:before { content: "\f0dc"; }
 
 .highlight .c     { color: #998; font-style: italic }
 .highlight .err   { color: #a61717; background-color: #e3d2d2; }
