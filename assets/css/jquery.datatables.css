@@ -101,8 +101,9 @@ table.dataTable thead .sorting_desc:after {
     content: "\f0dd"; /* sort-by-attributes-alt */
 }
 
-table.fa-5 .sorting_asc i:before { content: "\f0dc";}
-table.fa-5 thead .sorting:after  i:before { content: "\f0dc"; }
+table.dataTable.fa-5 .sorting:after  {     font-family: "Font Awesome 5 Free"; content: "\f0dc"; }
+table.dataTable.fa-5 .sorting_asc:after {     font-family: "Font Awesome 5 Free"; content: "\f0de";}
+table.dataTable.fa-5 .sorting_desc:after {     font-family: "Font Awesome 5 Free"; content: "\f0dd";}
 
 div.dataTables_scrollBody table.dataTable thead .sorting:after,
 div.dataTables_scrollBody table.dataTable thead .sorting_asc:after,
