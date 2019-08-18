@@ -1,0 +1,62 @@
+{% include head.html %}
+
+<body>
+    {% include header.html %}
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1>{{ site.title }}</h1>
+        </div>
+    </div>
+
+    <div id="wrapper">
+
+        <div class="form-group">
+            <label for="searchicons">Search for icons</label>
+            <input type="email" class="form-control" id="searchicons" placeholder="Search">
+        </div>
+
+        {{ content }}
+    </div>
+
+    {% include footer.html %}
+
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="{{ page.relative_path }}assets/js/clipboard.js"></script>
+
+    <script>
+
+        function copyToClipboard(e) {
+            clipboard.copy({
+                'text/plain': $(e).data("to-copy-html"),
+                'text/html': $(e).data("to-copy-html")
+            }).then(
+                function(){console.log('success'); },
+                function(err){console.log('failure', err);
+                });
+        }
+
+        (function() {
+            oTable = $('#icons').DataTable({
+                "paging":   false,
+                "ordering": true,
+                "info":     true
+            });
+
+            $('#searchicons').keyup(function(){
+                oTable.search($(this).val()).draw();
+            })
+
+            $("code").add(".copy-unicode").on('click', function(e) {
+                copyToClipboard($(this));
+            });
+
+            $('#searchicons').focus();
+        })();
+
+
+    </script>
+
+
+</body>
+</html>
