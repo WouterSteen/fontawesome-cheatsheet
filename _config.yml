@@ -16,3 +16,6 @@ jquery:
 
 jquery_validate:
   version:        1.13.1
+
+plugins:
+  - jekyll-sitemap
