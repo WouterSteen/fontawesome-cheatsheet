@@ -1,21 +1,10 @@
 safe:             false
 port:             4000
 baseurl:          /
-url:              https://www.fontawesomecheatsheet.com/
+url:              https://www.fontawesomecheatsheet.com
 title:            Fontawesome Cheatsheet
 twitter_username: WouterSteen
 github_username:  WouterSteen
 description:      Font awesome Cheat sheet
-
-bootstrap:
-  version:        3.3.5
-  url:            http://getbootstrap.com
-
-jquery:
-  version:        1.11.3
-
-jquery_validate:
-  version:        1.13.1
-
 plugins:
   - jekyll-sitemap
