@@ -1,7 +1,7 @@
 safe:             false
 port:             4000
 baseurl:          /
-url:              http://localhost:4000
+url:              https://www.fontawesomecheatsheet.com/
 title:            Fontawesome Cheatsheet
 twitter_username: WouterSteen
 github_username:  WouterSteen
