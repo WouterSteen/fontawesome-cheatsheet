@@ -6,6 +6,8 @@ description: Download Icon fonts
 keywords: icon fonts
 ---
 
+# Icon Font
+
 ### What is an icon font?
 
 An icon font is a font that contains images. Kinda like the font
