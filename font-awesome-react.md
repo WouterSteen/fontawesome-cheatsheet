@@ -6,16 +6,19 @@ description: Use font awesome with React
 keywords: Font awesome react
 ---
 
-### How to use font awesome with react
+## How to use font awesome with react
 
-When you use a framework like react and you need some icons its a good idea to use font awesome. Why you would want that you can read on this page about <a href="/icon-fonts" title="The why and how about icon fonts">icon fonts</a> 
-In general this is possible in two ways:
+When you use a framework like react and you need some icons its a good idea to use font awesome. Why you would want that you can read on this page about <a href="/icon-fonts" title="The why and how about icon fonts">icon fonts</a>.
+In general this is possible in two ways, direct include all and use react based components.
+
+### Direct url to the lib
 
 - Add the css and start working with it.
 
 `https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css`
 
-Or - 
+### React based components 
+ 
 - use react-fontawesome
 
 This is a great way to leverage fontawesome without the disadvantage of a icon font. This is that you load a font with icons you do not always use.
