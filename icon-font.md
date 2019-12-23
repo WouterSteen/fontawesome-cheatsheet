@@ -2,8 +2,8 @@
 layout: page
 permalink: /icon-font/
 title: Icon Font
-description: Download Icon fonts
-keywords: icon fonts
+description: What is an icon font and why would I use this?
+keywords: what and why icon fonts
 ---
 
 ### What is an icon font?
